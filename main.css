@@ -1,0 +1,30 @@
+body {
+    background-color: lightblue;
+    color: black;
+    font-family: Arial;
+    margin: 0px;
+}
+
+header {
+    background-color: black;
+     color: lightgreen;
+      padding: 50px;
+       font-size: 20pt
+}
+
+footer {
+    background-color: black;
+     color: lightgreen;
+      padding: 50px;
+       font-size: 20pt
+}
+
+main {
+    background-color: lightblue;
+    color: black;
+    font-family: Arial;
+    margin: 0px;
+}
+a href {
+    text-decoration: none;
+}
