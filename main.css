@@ -16,14 +16,19 @@ footer {
     background-color: black;
      color: lightgreen;
       padding: 50px;
-       font-size: 20pt
+       font-size: 20pt;
+       text-align: right;
+       position: fixed;
+       bottom: 0;
+       right: 0;
+       left: 0;
 }
 
 main {
     background-color: lightblue;
     color: black;
     font-family: Arial;
-    margin: 0px;
+    margin: 10px 20px 131px;
 }
 
 a {
