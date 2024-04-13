@@ -15,6 +15,14 @@
             let result = a + b;
             alert('Сумма ' + a + ' и ' + b + ' равна ' + result);
         }
+        function ShowAuthor() {
+            let author = 'Автор страницы:\nЧукаев Роман Константинович'
+            alert(author)
+        }
+        function ClickFooter() {
+            let text = 'Приветствую!\nПравила моей странички:\n1. Я тут главный!!!\n2. Материться нельзя, а то бан!\n3. Фанаты кваса "Благодей" сразу в друзя\n4. Картинки не воровать\n5. Если я не прав, смотри правило №1\n6. Если не ставишь лайки, выходи со странички!'
+            alert(text)
+        }  
     </script>
     <style>
         .message {
@@ -28,19 +36,25 @@
             display: inline-block;
 
         }
+        header {
+            cursor: pointer;
+        }
+        footer {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <header>
+    <header onclick="ShowAuthor()">
         НГТУ, ФБ, Лабораторная 4
     </header>
 
     <main>
         <div class="message" onclick="ShowSum()">Сколько будет 5154+7891?</div>
-        <div class="message">Узнать, кто автор страницы</div>
+        <div class="message" onclick="ShowAuthor()">Узнать, кто автор страницы</div>
     </main>
 
-    <footer>
+    <footer ondblclick="ClickFooter()">
         &copy; Чукаев Роман, ФБИ-24, 2 курс, 2024
     </footer>
 </body>
