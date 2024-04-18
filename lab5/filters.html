@@ -10,11 +10,15 @@
     <link rel="icon" href="../favicon/favicon-32x32.png">
 </head>
 <script>
-    function blurChange() {
-        let value = document.getElementById('blurValue').value + 'px';
-        document.getElementById('blurOutput').innerText = value;
-        document.getElementById('blurImage').style.filter = 'blur(' + value + ')';
-    }
+    function applyFilters() {
+    let blurValue = document.getElementById('blurValue').value + 'px';
+    let brightnessValue = document.getElementById('brightnessValue').value + '%';
+
+    document.getElementById('blurOutput').innerText = blurValue;
+    document.getElementById('brightnessOutput').innerText = brightnessValue;
+
+    document.getElementById('Image').style.filter = 'blur(' + blurValue + ') brightness(' + brightnessValue + ')';
+}
 </script>
 <style>
     .mountPict {
@@ -29,10 +33,13 @@
     <main>
         <div>
             Фильтр blur:
-            <input type="range" min="0" max="20" value="0" onchange="blurChange()" id="blurValue">
-            <span id="blurOutput"></span>
+            <input type="range" min="0" max="20" value="0" onchange="applyFilters()()" id="blurValue">
+            <span id="blurOutput"></span><br>
+            Фильтр brightness:
+            <input type="range" min="0" max="500" value="100" onchange="applyFilters()()" id="brightnessValue">
+            <span id="brightnessOutput"></span>
         </div>
-        <div><img src="mountains.jpg" id='blurImage' class="mountPict"></div>
+        <div><img src="mountains.jpg" id='Image' class="mountPict"></div>
     </main>
     <footer>
         &copy; Чукаев Роман, ФБИ-24, 2 курс, 2024
