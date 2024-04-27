@@ -22,7 +22,13 @@
     div.game:hover {
     background-color: #ffffff30;
     box-shadow: 0 0 15px #00000030;
-}
+    }
+    .rules {
+        text-align: center;
+        width: 400px;
+        margin-left: 700px;
+    }
+
 </style>
 <script>
     let number;
@@ -70,6 +76,18 @@
         document.getElementById('result').innerHTML = ''
         document.getElementById('user-number').value = ''
     }
+    function CheckRules() {
+        let screensRules = document.getElementsByClassName('rules');
+        screensRules[0].style.display = 'none';
+        screensRules[1].style.display = 'block';
+    }
+
+    function HideRules() {
+        let screensRules = document.getElementsByClassName('rules');
+        screensRules[1].style.display = 'none';
+        screensRules[0].style.display = 'block';
+
+    }
 </script>
 <body>
     <header>
@@ -105,6 +123,21 @@
                 <button onclick="again()">Сыграть ещё раз</button>
             </div>
         </div>
+
+        <div class="rules">
+              <button id="openRules" onclick="CheckRules()">Правила игры</button>
+            </div>
+        <div class="rules" style="display: none;">
+            <button onclick="HideRules()">Скрыть правила</button>
+            <ol type="A">
+                <li>Нажмите кнопку "Сыграть в игру"</li>
+                <li>Введите в поле для ввода число</li>
+                <li>Если число отгадано верно, вы увидите сообщение "Поздравляем! Вы выиграли"</li>
+                <li>Если число отгадано неверно, то продолжайте отгадывать</li>
+                <li>После победы можете запустить игру заново нажав "Сыграть ещё раз"</li>
+            </ol>
+            </div>
+          </div>
     </main>
 
     <footer>
