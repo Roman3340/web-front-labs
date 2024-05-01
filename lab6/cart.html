@@ -12,18 +12,20 @@
 <script>
     function calculateTotal() {
         let balance = parseFloat(document.getElementById('balance').value) || 0;
+        let bread = parseInt(document.getElementById('Bread').value) || 0;
+        let eggs = parseInt(document.getElementById('Eggs').value) || 0;
+        let milk = parseInt(document.getElementById('Milk').value) || 0;
+        let grechka = parseInt(document.getElementById('Grechka').value) || 0;
+        let flour = parseInt(document.getElementById('Flour').value) || 0;
         let apples = parseInt(document.getElementById('Apples').value) || 0;
-        let pears = parseInt(document.getElementById('Pearses').value) || 0;
-        let oranges = parseInt(document.getElementById('Oranges').value) || 0;
-        let melons = parseInt(document.getElementById('Melons').value) || 0;
-        let kiwi = parseInt(document.getElementById('Qiwi').value) || 0;
+        let qiwi = parseInt(document.getElementById('Qiwi').value) || 0;
 
-        if (apples < 0 || pears < 0 || oranges < 0 || melons < 0 || kiwi < 0) {
+        if (bread < 0 || eggs < 0 || milk < 0 || grechka < 0|| flour < 0 || apples < 0 || qiwi < 0) {
             alert('Количество товара не может быть отрицательным!');
             return;
         }
 
-        let total = (apples * 100 + pears * 80 + oranges * 150 + melons * 300 + kiwi * 120);
+        let total = (bread * 40 + eggs * 150 + milk * 80 + grechka * 80 + flour * 120 + apples * 210 + qiwi * 70);
         if (total === 0) {
             alert('Выберите хотя бы один товар!');
             return;
@@ -40,19 +42,20 @@
 
     function resetValues() {
         document.getElementById('balance').value = '';
-        document.getElementById('Apples').value = '';
-        document.getElementById('Pearses').value = '';
-        document.getElementById('Oranges').value = '';
-        document.getElementById('Melons').value = '';
-        document.getElementById('Qiwi').value = '';
-        document.getElementById('result').innerHTML = '';
+        document.getElementById('Bread').value = '';
+        document.getElementById('Eggs').value = '';
+        document.getElementById('Milk').value = '';
+        document.getElementById('Grechka').value = '';
+        document.getElementById('Flour').value = '';
+        document.getElementById('Apples').innerHTML = '';
+        document.getElementById('Qiwi').innerHTML = '';
     }
 </script>
 <style>
     #output {
         border: 2px solid;
         border-radius: 10px;
-        width: 400px;
+        width: 450px;
         height: auto;
         padding: 10px;
         background-color: #8ee4af;
@@ -114,32 +117,44 @@
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>Яблоки</td>
-                    <td>100руб/шт</td>
-                    <td><input type="number" min="0" id="Apples" placeholder="0"></td>
+                    <td>Хлеб</td>
+                    <td>40руб/шт</td>
+                    <td><input type="number" min="0" id="Bread" placeholder="0"></td>
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>Груши</td>
-                    <td>80руб/шт</td>
-                    <td><input type="number" min="0" id="Pearses" placeholder="0"></td>
+                    <td>Яйца</td>
+                    <td>150руб/10шт</td>
+                    <td><input type="number" min="0" id="Eggs" placeholder="0"></td>
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td>Апельсины</td>
-                    <td>150руб/шт</td>
-                    <td><input type="number" min="0" id="Oranges" placeholder="0"></td>
+                    <td>Молоко</td>
+                    <td>80руб/шт</td>
+                    <td><input type="number" min="0" id="Milk" placeholder="0"></td>
                 </tr>
                 <tr>
                     <td>4</td>
-                    <td>Дыни</td>
-                    <td>300руб/шт</td>
-                    <td><input type="number" min="0" id="Melons" placeholder="0"></td>
+                    <td>Гречка</td>
+                    <td>80руб/кг</td>
+                    <td><input type="number" min="0" id="Grechka" placeholder="0"></td>
                 </tr>
                 <tr>
                     <td>5</td>
+                    <td>Мука</td>
+                    <td>120руб/кг</td>
+                    <td><input type="number" min="0" id="Flour" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Яблоки</td>
+                    <td>210руб/кг</td>
+                    <td><input type="number" min="0" id="Apples" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <td>7</td>
                     <td>Киви</td>
-                    <td>120руб/шт</td>
+                    <td>70руб/шт</td>
                     <td><input type="number" min="0" id="Qiwi" placeholder="0"></td>
                 </tr>
             </tbody>
