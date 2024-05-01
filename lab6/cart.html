@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чукаев Роман Константинович. Корзина товаров</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon/favicon-16x16.png">
+    <link rel="icon" href="../favicon/favicon-32x32.png">
+</head>
+<script>
+    function calculateTotal() {
+        let balance = parseFloat(document.getElementById('balance').value) || 0;
+        let apples = parseInt(document.getElementById('Apples').value) || 0;
+        let pears = parseInt(document.getElementById('Pearses').value) || 0;
+        let oranges = parseInt(document.getElementById('Oranges').value) || 0;
+        let melons = parseInt(document.getElementById('Melons').value) || 0;
+        let kiwi = parseInt(document.getElementById('Qiwi').value) || 0;
+
+        if (apples < 0 || pears < 0 || oranges < 0 || melons < 0 || kiwi < 0) {
+            alert('Количество товара не может быть отрицательным!');
+            return;
+        }
+
+        let total = (apples * 100 + pears * 80 + oranges * 150 + melons * 300 + kiwi * 120);
+        if (total === 0) {
+            alert('Выберите хотя бы один товар!');
+            return;
+        }
+
+        let remainingBalance = balance - total;
+        if (remainingBalance < 0) {
+            alert('Недостаточно средств на балансе!');
+            return;
+        }
+
+        document.getElementById('result').innerHTML = 'Общая сумма: ' + total + ' руб.<br>Остаток на балансе: ' + remainingBalance + ' руб.';
+    }
+
+    function resetValues() {
+        document.getElementById('balance').value = '';
+        document.getElementById('Apples').value = '';
+        document.getElementById('Pearses').value = '';
+        document.getElementById('Oranges').value = '';
+        document.getElementById('Melons').value = '';
+        document.getElementById('Qiwi').value = '';
+        document.getElementById('result').innerHTML = '';
+    }
+</script>
+<style>
+    #output {
+        border: 2px solid;
+        border-radius: 10px;
+        width: 400px;
+        height: auto;
+        padding: 10px;
+        background-color: #8ee4af;
+    }
+    .h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .product-table {
+        width: 100%;
+        margin-bottom: 20px;
+        border-collapse: collapse;
+    }
+    .product-table th, .product-table td {
+        border: 1px solid #000;
+        padding: 8px;
+        text-align: center;
+    }
+    .buttons-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+    .button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+<header>
+    НГТУ, ФБ, Лабораторная 6
+</header>
+
+<main>
+    <div id="output">
+        <div class="h1">
+            Корзина товаров
+        </div>
+        <input type="number" id="balance" placeholder="Введите баланс" style="width: 100%; margin-bottom: 10px;">
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Название</th>
+                    <th>Цена</th>
+                    <th>Количество</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Яблоки</td>
+                    <td>100руб/шт</td>
+                    <td><input type="number" min="0" id="Apples" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Груши</td>
+                    <td>80руб/шт</td>
+                    <td><input type="number" min="0" id="Pearses" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Апельсины</td>
+                    <td>150руб/шт</td>
+                    <td><input type="number" min="0" id="Oranges" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Дыни</td>
+                    <td>300руб/шт</td>
+                    <td><input type="number" min="0" id="Melons" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Киви</td>
+                    <td>120руб/шт</td>
+                    <td><input type="number" min="0" id="Qiwi" placeholder="0"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="buttons-container">
+            <button class="button" onclick="calculateTotal()">ОК</button>
+            <button class="button" onclick="resetValues()">Очистить значения</button>
+        </div>
+        <div id="result" style="text-align: center; margin-top: 10px;"></div>
+    </div>
+</main>
+
+<footer>
+    &copy; Чукаев Роман, ФБИ-24, 2 курс, 2024
+</footer>
+</body>
+</html>
