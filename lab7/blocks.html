@@ -34,6 +34,32 @@
 
         document.querySelector('main').appendChild(newBlock)
     }
+    function addNewBlocks() {
+        let main = document.querySelector('main');
+        let startingWidth = 200; // Начальная ширина первого блока (в пикселях)
+        let widthIncrement = 20; // Увеличение ширины на каждый дополнительный блок (в пикселях)
+        let numberOfBlocks = parseInt(document.getElementById('blocksNumber').value);
+
+        for (let i = 0; i < numberOfBlocks; i++) {
+            let newBlock = document.createElement('div');
+            newBlock.style.backgroundColor = 'green';
+            newBlock.style.height = '40px';
+            newBlock.style.border = '2px solid black';
+            newBlock.style.marginTop = '10px';
+            newBlock.style.borderRadius = '10px';
+            newBlock.innerHTML = `Блок № ${i + 1}: 2*${i}<sup>2</sup> = ${2 * i**2}`;
+            newBlock.style.textAlign = 'center';
+            newBlock.style.paddingTop = '19px';
+
+            // Расчет текущей ширины на основе итерации цикла
+            let currentWidth = startingWidth + (widthIncrement * i);
+
+            // Установка ширины с использованием единицы измерения (пиксели по умолчанию)
+            newBlock.style.width = `${currentWidth}px`;
+
+            main.appendChild(newBlock);
+        }
+        }
 </script>
 <body>
     <header>
@@ -42,6 +68,8 @@
 
     <main>
         <button class="button" onclick="addNewBlock()">Добавить блок</button>
+        <button class="button" onclick="addNewBlocks()">Добавить блоки</button><br><br>
+        <input type="number" id="blocksNumber" placeholder="Введите кол-во блоков" style="width: 20%;"><br><br>
     </main>
 
     <footer>
