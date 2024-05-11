@@ -39,6 +39,10 @@
         let startingWidth = 200; // Начальная ширина первого блока (в пикселях)
         let widthIncrement = 20; // Увеличение ширины на каждый дополнительный блок (в пикселях)
         let numberOfBlocks = parseInt(document.getElementById('blocksNumber').value);
+        let buttons = Array.from(main.querySelectorAll('button')); 
+        let blocks = Array.from(main.querySelectorAll('div:not(button)')); 
+
+        blocks.forEach(block => block.remove()); 
 
         for (let i = 0; i < numberOfBlocks; i++) {
             let newBlock = document.createElement('div');
@@ -62,6 +66,10 @@
         }
         function add20_50() {
             let main = document.querySelector('main');
+            let buttons = Array.from(main.querySelectorAll('button')); 
+            let blocks = Array.from(main.querySelectorAll('div:not(button)')); 
+
+            blocks.forEach(block => block.remove()); 
             for(let i = 20; i<=50; i+=2.5) {
                 let newBlock = document.createElement('div');
                 newBlock.style.backgroundColor = '#77c081';
@@ -77,6 +85,10 @@
         }
         function add10_80() {
             let main = document.querySelector('main');
+            let buttons = Array.from(main.querySelectorAll('button')); 
+            let blocks = Array.from(main.querySelectorAll('div:not(button)')); 
+
+            blocks.forEach(block => block.remove()); 
             for (let i = 10; i >= -80; i -= 3) {
                 let newBlock = document.createElement('div');
                 newBlock.style.backgroundColor = '#77c081';
@@ -95,6 +107,10 @@
         }
         function opacityBlocks() {
             let main = document.querySelector('main');
+            let buttons = Array.from(main.querySelectorAll('button')); 
+            let blocks = Array.from(main.querySelectorAll('div:not(button)')); 
+
+            blocks.forEach(block => block.remove()); 
             let startingOpacity = 0;
             let opacityIncrement = 10; 
             for (let i = 1; i <= 10 ; i++) {
@@ -117,6 +133,38 @@
                 main.appendChild(newBlock);
             }
         }
+        function colorBlocks() {
+            let main = document.querySelector('main');
+            let numberOfBlocks = parseInt(document.getElementById('blocksNumberColor').value);
+            let buttons = Array.from(main.querySelectorAll('button')); 
+            let blocks = Array.from(main.querySelectorAll('div:not(button)')); 
+
+            blocks.forEach(block => block.remove()); 
+
+            for (let i = 0; i < numberOfBlocks; i++) {
+                let newBlock = document.createElement('div');
+                newBlock.style.height = '40px';
+                newBlock.style.marginTop = '10px';
+                newBlock.style.borderRadius = '100%';
+                newBlock.innerHTML = `Блок № ${numberOfBlocks - i}`;
+                newBlock.style.textAlign = 'center';
+                newBlock.style.paddingTop = '19px';
+                newBlock.style.marginLeft = '10px'
+                newBlock.style.display = 'inline-block'; 
+                newBlock.style.width = '100px'
+                if (i % 2 == 0) {
+                    newBlock.style.backgroundColor = 'black';
+                    newBlock.style.color = 'white';
+                    newBlock.style.border = '2px solid white';
+                } else {
+                    newBlock.style.backgroundColor = 'white';
+                    newBlock.style.color = 'black';
+                    newBlock.style.border = '2px solid black';
+
+                }
+                main.appendChild(newBlock);
+            }
+        }
 </script>
 <body>
     <header>
@@ -128,8 +176,10 @@
         <button class="button" onclick="addNewBlocks()">Добавить блоки</button>
         <button class="button" onclick="add20_50()">20 => 50</button>
         <button class="button" onclick="add10_80()">10 => -80</button>
-        <button class="button" onclick="opacityBlocks()">Полупрозрачные блоки</button><br><br>
-        <input type="number" id="blocksNumber" placeholder="Введите кол-во блоков" style="width: 20%;"><br><br>
+        <button class="button" onclick="opacityBlocks()">Полупрозрачные блоки</button>
+        <button class="button" onclick="colorBlocks()">Черный/белый</button><br><br>
+        <input type="number" id="blocksNumber" placeholder="Введите кол-во блоков" style="width: 20%;">
+        <input type="number" id="blocksNumberColor" placeholder="Введите кол-во цветных кругов" style="width: 20%;"><br><br>
     </main>
 
     <footer>
