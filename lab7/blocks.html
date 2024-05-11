@@ -10,8 +10,30 @@
     <link rel="icon" href="../favicon/favicon-32x32.png">
 </head>
 <style>
+    .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+    .button:hover {
+        background-color: #45a049;
+    }
 </style>
 <script>
+    function addNewBlock() {
+        let newBlock = document.createElement('div')
+        newBlock.style.backgroundColor = 'green'
+        newBlock.style.height = '40px'
+        newBlock.style.border = '2px solid black'
+        newBlock.style.marginTop = '10px'
+        newBlock.style.borderRadius = '10px'
+
+        document.querySelector('main').appendChild(newBlock)
+    }
 </script>
 <body>
     <header>
@@ -19,6 +41,7 @@
     </header>
 
     <main>
+        <button class="button" onclick="addNewBlock()">Добавить блок</button>
     </main>
 
     <footer>
