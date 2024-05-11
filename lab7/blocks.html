@@ -75,6 +75,24 @@
                 main.appendChild(newBlock);
             }
         }
+        function add10_80() {
+            let main = document.querySelector('main');
+            for (let i = 10; i >= -80; i -= 3) {
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = '#77c081';
+                newBlock.style.height = '40px';
+                newBlock.style.border = '2px solid black';
+                newBlock.style.marginTop = '10px';
+                newBlock.style.borderRadius = '100%';
+                newBlock.innerHTML = `Круг со значением: ${i}`;
+                newBlock.style.textAlign = 'center';
+                newBlock.style.paddingTop = '19px';
+                newBlock.style.width = '180px';
+                newBlock.style.display = 'inline-block'; 
+
+                main.appendChild(newBlock);
+            }
+        }
 </script>
 <body>
     <header>
@@ -84,7 +102,8 @@
     <main>
         <button class="button" onclick="addNewBlock()">Добавить блок</button>
         <button class="button" onclick="addNewBlocks()">Добавить блоки</button>
-        <button class="button" onclick="add20_50()">20 => 50</button><br><br>
+        <button class="button" onclick="add20_50()">20 => 50</button>
+        <button class="button" onclick="add10_80()">10 => -80</button><br><br>
         <input type="number" id="blocksNumber" placeholder="Введите кол-во блоков" style="width: 20%;"><br><br>
     </main>
 
