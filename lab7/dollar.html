@@ -36,7 +36,7 @@
         for(i = 0; i < exchange.length; i++) {
             let tr = document.createElement('tr');
             let td = document.createElement('td');
-            td.innerText = exchange[i];
+            td.innerText = exchange[i].toFixed(2);
             tr.appendChild(td);
             table.appendChild(tr);
         }
@@ -52,7 +52,7 @@
 </script>
 <body>
     <header>
-        НГТУ, ФБ, Лабораторная 6
+        НГТУ, ФБ, Лабораторная 7
     </header>
 
     <main>
