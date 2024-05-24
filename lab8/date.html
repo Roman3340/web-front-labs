@@ -21,7 +21,7 @@
         }
     </style>
 </head>
-<body onload="showDate()">
+<body onload="showDate(), showDateTime()">
     <header>
         НГТУ, ФБ, Лабораторная 8
     </header>
@@ -42,6 +42,15 @@
                 Дата и время для Испанской локали (es-ES):
                 <span id="current-date-es" style="font-weight: bold;"></span><br>
             </div>
+        </div>
+        <div id="current-date">
+            <br>
+            Текущая дата и время:
+            <span id="current-date-time" style="font-weight: bold;"></span><br>
+            Текущий год: <span id="current-year" style="font-weight: bold;"></span><br>
+            Текущий месяц: <span id="current-month" style="font-weight: bold;"></span><br>
+            Текущая дата: <span id="current-day" style="font-weight: bold;"></span><br>
+            День недели: <span id="current-day-of-week" style="font-weight: bold;"></span><br>
         </div>
     </main>
 
